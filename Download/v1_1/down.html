@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>乐豪娱乐</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<p id="wei" style="display:none"><img src="down_share.jpg" style="width:100%"></p>
+</body>
+ <script type="text/javascript">
+       (function(){
+            var ua = navigator.userAgent.toLowerCase();
+            var t;
+            var config = {
+                /*scheme:必须*/
+              //  scheme_IOS: 'cundong://',
+                adr_url:'https://github.com/jrtec2019/jrtec/blob/master/Download/bying.apk',
+                IOS_url:'itms-services://?action=download-manifest&url=https://github.com/jrtec2019/jrtec/blob/master/Download/v1_3_kl/bying.plist'
+            };
+
+            function openclient() {
+                    var ifr = document.createElement('iframe');
+    
+                    var downurl = ua.indexOf('os') > 0 ? config.IOS_url: config.adr_url;
+                    ifr.style.display = 'none';
+                    document.body.appendChild(ifr);
+			        if(isWeiXin()){
+						if(ua.indexOf('os') <= 0) {
+					        	var wei = document.getElementById("wei");
+					       		wei.style.display="block";
+							window.location = downurl   
+						}
+						else{
+							window.location = downurl;
+						}
+					    }else{
+					   window.location = downurl;
+							}
+     
+				function isWeiXin(){
+				    var ww = window.navigator.userAgent.toLowerCase();
+				    if(ww.match(/MicroMessenger/i) == 'micromessenger'){
+				        return true;
+				    }else{
+				        return false;
+				    }
+				}
+
+
+                }
+		
+             openclient(); 		  
+      })()
+</script>
+</html>
